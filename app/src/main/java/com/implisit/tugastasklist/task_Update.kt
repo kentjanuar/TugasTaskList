@@ -44,17 +44,26 @@ class task_Update : AppCompatActivity() {
         if (action != null) {
             namaKegiatan.text = action
         }
+
+        var image = intent.getStringExtra("image")
+        if (image != null) {
+            val resourceId = resources.getIdentifier(image, "drawable", packageName)
+            if (resourceId != 0) {
+                imagePreview.setImageResource(resourceId)
+            } else {
+                imagePreview.setImageResource(R.drawable.error)
+            }
+        }
         val judul = intent.getStringExtra("judul")
         if (judul != null) {
             judulTask.setText(judul)
         }
 
+
         val deskripsi = intent.getStringExtra("deskripsi")
         if (deskripsi != null) {
             deskripsiTask.setText(deskripsi)
         }
-
-
 
 
         inputImage.setOnClickListener {

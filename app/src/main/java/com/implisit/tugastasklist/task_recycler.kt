@@ -18,7 +18,6 @@ class task_recycler(private val listTask: ArrayList<task>) : RecyclerView.Adapte
     private lateinit var onItemclickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: task)
         fun delData(pos: Int)
         fun editData(pos: Int)
         fun updateStatus(pos: Int)

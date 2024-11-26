@@ -68,11 +68,6 @@ class MainActivity : AppCompatActivity() {
             _rvTask.adapter = _taskAdapter
 
             _taskAdapter.setOnItemClickCallback(object : task_recycler.OnItemClickCallback {
-                override fun onItemClicked(data: task) {
-                    // Aksi untuk tombol Edit atau Status
-                    Toast.makeText(this@MainActivity, "Task: ${data.judul}", Toast.LENGTH_SHORT)
-                        .show()
-                }
 
                 override fun delData(pos: Int) {
                     if (pos >= 0 && pos < _listTask.size) {
