@@ -3,6 +3,7 @@ package com.implisit.tugastasklist
 import android.content.DialogInterface
 import java.util.concurrent.TimeUnit
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -46,6 +47,12 @@ class MainActivity : AppCompatActivity() {
 //            _image = resources.getStringArray(R.array.GambarTask).toMutableList()
 //
 //        }
+
+        sp = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+        val editor = sp.edit()
+        editor.putString("key", "value")
+        editor.apply()
+
 
 
         fun tambahData() {
@@ -129,6 +136,7 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
+
         _judul = mutableListOf()
         _image = mutableListOf()
         _deskripsi = mutableListOf()
@@ -138,6 +146,12 @@ class MainActivity : AppCompatActivity() {
 //      SiapakanData()
         tambahData()
         tampilkanData()
+        displayFavoriteTask()
+    }
+
+    private fun displayFavoriteTask() {
+        val favoriteTask = sp.getString("judul", "No favorite task")
+        Toast.makeText(this, "Favorite Task: $favoriteTask", Toast.LENGTH_SHORT).show()
     }
 
     companion object {
@@ -200,7 +214,7 @@ class MainActivity : AppCompatActivity() {
         _taskAdapter.notifyItemInserted(_listTask.size - 1)
     }
 
-
+    lateinit var sp : SharedPreferences
     private var _listTask: ArrayList<task> = arrayListOf()
     private lateinit var _rvTask: RecyclerView
     private lateinit var _taskAdapter: task_recycler

@@ -95,4 +95,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2" />
 
+    <Button
+        android:id="@+id/sharedPreference"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:text="Fav"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteTask"
+        app:layout_constraintEnd_toEndOf="@+id/imageTask"
+        app:layout_constraintStart_toStartOf="@+id/imageTask" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
